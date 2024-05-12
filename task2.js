@@ -10,11 +10,11 @@ xml2js.parseString(xmlData, (err, result) => {
     return;
   }
 
-  result.root.str1[0] = result.root.str1[0].split('').reverse().join('');
+  result.root.str1[0] = result.root.str1[0].split('').reverse().join('').replace(/[\r/]/g, '');
 
-  result.root.str2[0] = result.root.str2[0].replace(/\d/g, '');
+  result.root.str2[0] = result.root.str2[0].replace(/\d/g, '').replace(/[\r/]/g, '');
 
-  result.root.str3[0] = result.root.str3[0].replace(/\D/g, '');
+  result.root.str3[0] = result.root.str3[0].replace(/\D/g, '').replace(/[\r/]/g, '');
 
   result.root.str4[0] = `number of spaces ${result.root.str4[0].split(/\s/g).length - 1}`;
 
